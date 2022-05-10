@@ -1,5 +1,5 @@
 # HintInject
-HintInject is a shellcode embedder and loader that I developed while playing with the PE file and Import Directory Table structures. It takes a raw shellcode file and puts the shellcode in chunks into the Hint/Name Table entries which are reachable via the Import Lookup Table of a fake imported DLL entry on the loader executable. The loader then merges these chunks to execute the shellcode
+HintInject is a shellcode embedder and loader that I developed while playing with the PE file and Import Directory Table structures. It takes a raw shellcode file and puts the shellcode in chunks into the Hint/Name Table entries which are reachable via the Import Lookup Table of a fake imported DLL entry on the loader executable. The loader then merges these chunks to execute the shellcode. I don't know whether it's a novel technique or not but I wanted to share it for fun.
 
 # DLL Loading Process
 Before explaining how HintInject works, I want to briefly mention the DLL Loading process by referencing a post in Stack Overflow.
@@ -46,6 +46,12 @@ HintInject can be used to create such a loader that holds the shellcode in its H
 
 <p align="center">
 <img width="460" height="400" src="https://user-images.githubusercontent.com/26549173/164948439-a7e05320-a290-4a44-9dcf-3ac680b9c275.png">
+</p>
+
+Example imports of a loader binary:
+
+<p align="center">
+<img width="850" alt="Screen Shot 2022-05-08 at 11 43 42" src="https://user-images.githubusercontent.com/26549173/167288690-07bba71e-a21f-4f6c-832c-4dcc346b1555.png">
 </p>
 
 # Usage
